@@ -1,0 +1,6 @@
+/coverage
+/env.sh
+/node_modules
+*.sublime-project
+*.sublime-workspace
+npm-debug.log
