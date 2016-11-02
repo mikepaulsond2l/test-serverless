@@ -1,6 +1,6 @@
-if (!global._babelPolyfill) {
-   require('babel-polyfill');
-}
+// if (!global._babelPolyfill) {
+require('babel-polyfill');
+// }
 
 const S3 = require('@d2l/content-service-worker-utils').S3;
 // const deleteOrMoveFiles = require('./utils/delete-or-move-files');

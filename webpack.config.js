@@ -12,17 +12,17 @@ module.exports = {
     }, {
       test: /\.json$/,
       loader: 'json-loader',
+    }, {
+      test: /\.node$/,
+      loader: 'node-loader',
+    }, {
+      test: /\.md$/,
+      loader: 'ignore-loader',
     }]
   },
-  // resolve: {
-  //   modulesDirectories: [
-  //     'node_modules',
-  //   ],
-  // },
-  externals: [
-    'any-promise',
-  ],
-  // plugins: [
-  //   new webpack.IgnorePlugin(/any-promise/),
-  // ],
+  resolve: {
+    modulesDirectories: [
+      'node_modules',
+    ],
+  },
 };

@@ -8,23 +8,28 @@
   "author": "entmedia",
   "license": "UNLICENSED",
   "dependencies": {
-    "@d2l/content-service-worker-utils": "0.0.25",
+    "@d2l/content-service-worker-utils": "git+https://github.com/mikepaulsond2l/d2l-content-service-worker-utils.git#496f86b",
     "babel-runtime": "6.11.6",
     "bluebird": "^3.4.1",
     "serverless-webpack": "^1.0.0-rc.2"
   },
   "devDependencies": {
-    "babel-core": "^6.11.4",
+    "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
-    "babel-plugin-angularjs-annotate": "^0.4.0",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-stage-0": "^6.5.0",
     "babel-types": "^6.11.1",
     "eslint": "^2.9.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.11.0",
     "eslint-plugin-jsx-a11y": "^1.2.0",
     "eslint-plugin-react": "^5.2.2",
+    "html-loader": "^0.4.4",
+    "ignore-loader": "^0.1.1",
     "json-loader": "^0.5.4",
+    "node-loader": "^0.6.0",
     "serverless-webpack": "^1.0.0-beta.2",
     "webpack": "^1.13.1"
   }

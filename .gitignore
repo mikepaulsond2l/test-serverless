@@ -1,6 +1,7 @@
 /coverage
 /env.sh
 /node_modules
+/.serverless
 *.sublime-project
 *.sublime-workspace
 npm-debug.log
