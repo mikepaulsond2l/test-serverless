@@ -1,11 +1,10 @@
-// const conf = require('../conf');
-const Logger = require('@d2l/content-service-worker-utils').Logger;
-const version = require('@d2l/content-service-worker-utils').version;
+const bunyan = require('bunyan');
+const conf = require('../conf');
 
-const logger = new Logger({
-  name: 'd2l-content-service-lambda-cleanup',
-  environment: 'mp-test', //TODO: change this
-  version,
+const logger = bunyan.createLogger({
+  name: conf.name,
+  environment: conf.environment,
+  version: conf.version,
 });
 
 module.exports = logger;

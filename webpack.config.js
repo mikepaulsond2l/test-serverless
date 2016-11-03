@@ -6,9 +6,9 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
+      loader: 'babel',
       include: __dirname,
-      exclude: /node_modules/,
+      exclude: /node_modules\/(?!(@d2l\/content-service-worker-utils)\/).*/,
     }, {
       test: /\.json$/,
       loader: 'json-loader',

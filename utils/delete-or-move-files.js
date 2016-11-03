@@ -1,6 +1,6 @@
 const BPromise = require('bluebird');
 
-const moveToTrash = (s3, trashPrefix, concurrency = 1) => // TODO: need concurrency?
+const moveToTrash = (s3, trashPrefix, concurrency = 1) =>
   (bucket, keys, { onProgress } = {}) =>
     BPromise.map(keys, (key) =>
       s3.renameFile(bucket, key, `${trashPrefix}/${key}`)
@@ -12,7 +12,7 @@ const bulkDelete = (s3) =>
     s3.deleteFiles(bucket, keys)
       .then(() => onProgress && onProgress(keys.length));
 
-module.exports = (s3, trashPrefix, concurrency) => ( // TODO: need concurrency?
+module.exports = (s3, trashPrefix, concurrency) => (
   trashPrefix
     ? moveToTrash(s3, trashPrefix, concurrency)
     : bulkDelete(s3)
