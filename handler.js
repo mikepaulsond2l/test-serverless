@@ -6,7 +6,6 @@ const conf = require('./conf');
 
 module.exports.cleanup = (event, context, callback) => {
   const process = (bucket, keys, trashPrefix) => {
-    logger.info(`cleanup bucket: [${bucket}] keys: [${keys}] trashPrefix: [${trashPrefix}]`);
     const s3 = new S3({ logger });
     const deleteFiles = deleteOrMoveFiles(s3, trashPrefix, conf.concurrency);
 
@@ -24,10 +23,15 @@ module.exports.cleanup = (event, context, callback) => {
         callback(null, { message, event });
       })
       .catch(error => {
-        const message = `Cleanup failed with error: ${error}`;
-        callback(null, { message, event });
+        logger.error('Cleanup failed');
+        callback(error);
       });
   };
 
-  process('d2l-content-dev', ['mpaulson/key/uploads'], 'trash');
+  if (event && event.bucket && event.keys) {
+    logger.info(`processing event: ${JSON.stringify(event)}`);
+    process(event.bucket, event.keys, event.trashPrefix);
+  } else {
+    callback('Event must be providd with bucket and keys');
+  }
 };
